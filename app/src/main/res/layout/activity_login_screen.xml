@@ -21,38 +21,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView3"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
                 android:layout_marginTop="@dimen/_46sdp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:cardCornerRadius="@dimen/_16sdp"
+                app:cardElevation="6sp"
+                android:backgroundTint="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_circlegreen" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="@dimen/_69sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_46sdp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                app:layout_constraintStart_toStartOf="@+id/imageView2"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/app_icon" />
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    app:srcCompat="@drawable/square_icon" />
+            </androidx.cardview.widget.CardView>
+
 
             <TextView
                 android:id="@+id/titleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_26sdp"
                 android:fontFamily="@font/bold"
                 android:text="@string/welcomeback"
                 android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:textSize="@dimen/_16ssp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                app:layout_constraintStart_toStartOf="@+id/imageView2"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -69,26 +70,28 @@
 
             <EditText
                 android:id="@+id/editTextTextEmailAddress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_26sdp"
                 android:background="@drawable/edit_text_bg"
                 android:elevation="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_16sdp"
                 android:ems="10"
                 android:hint="@string/hintemail"
                 android:inputType="textEmailAddress"
                 android:paddingStart="@dimen/_20sdp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hint_small_text_color"
-                app:layout_constraintEnd_toEndOf="@+id/textView2"
-                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <EditText
                 android:id="@+id/editTextTextPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@drawable/edit_text_bg"
 
                 android:elevation="@dimen/_3sdp"
@@ -113,7 +116,7 @@
                 android:paddingRight="@dimen/_87sdp"
                 android:text="@string/google"
                 android:textAllCaps="false"
-                android:textColor="@color/green"
+                android:textColor="@color/toolbar_green"
                 app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
                 app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
                 app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
@@ -122,7 +125,7 @@
                 android:id="@+id/btnLogin"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@drawable/button_filled"
                 android:text="@string/login"
                 android:textAllCaps="false"
@@ -139,7 +142,7 @@
                 android:fontFamily="@font/regular"
                 android:textSize="@dimen/_10ssp"
                 android:text="@string/forgotpass"
-                android:textColor="@color/green"
+                android:textColor="@color/toolbar_green"
                 app:layout_constraintEnd_toEndOf="@+id/btnLogin"
                 app:layout_constraintStart_toStartOf="@+id/btnLogin"
                 app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
@@ -152,23 +155,25 @@
                 android:fontFamily="@font/regular"
                 android:textSize="@dimen/_10ssp"
                 android:text="@string/dont_have_acc"
-                android:textColor="@color/green"
+                android:textColor="@color/toolbar_green"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tvForgetPassword"
                 app:layout_constraintStart_toStartOf="@+id/tvForgetPassword" />
 
             <ImageButton
                 android:id="@+id/backBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_48sdp"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="36dp"
+                android:background="@drawable/shape_border_color"
                 android:backgroundTint="@android:color/transparent"
                 android:visibility="invisible"
                 app:layout_constraintEnd_toStartOf="@+id/imageView2"
                 app:layout_constraintHorizontal_bias="0.156"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_backgreen" />
+                app:srcCompat="@drawable/simple_back" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -2,12 +2,11 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Item"
     android:background="@color/white"
-    android:fontFamily="@font/light"
-    android:textColor="@color/appointmet_clr_dark"
-    android:textSize="@dimen/_16ssp"
-    android:padding="@dimen/_16sdp"
-    >
+    android:fontFamily="@font/medium"
+    android:padding="@dimen/_10sdp"
+    android:text="Item"
+    android:textColor="@color/toolbar_green"
+    android:textSize="@dimen/_16ssp">
 
 </TextView>

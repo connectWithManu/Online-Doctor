@@ -55,7 +55,7 @@ class CartItemAdapter(var context: Context, var cartList: ArrayList<CartItemMode
                         holder.binding.dropdowntextview.setText("Qty: $cartQuantity", false)
                         holder.binding.nameTxt.text = medicine!!.name
                         holder.binding.descTxt.text = medicine!!.description
-                        holder.binding.priceTxt.text = "₹ ${medicine!!.price * cartQuantity}"
+                        holder.binding.priceTxt.text = "$ ${medicine!!.price * cartQuantity}"
                     }
                 }
             }
@@ -71,7 +71,7 @@ class CartItemAdapter(var context: Context, var cartList: ArrayList<CartItemMode
             holder.binding.dropdowntextview.setText("Qty: $selectedQty", false)
             cartItem.quantity = selectedQty
             var price = formatpriceTotwodp(medicine!!.price * selectedQty)
-            holder.binding.priceTxt.text = "₹ ${price}"
+            holder.binding.priceTxt.text = "$ ${price}"
 
             updateCartItemOnClick?.invoke(cartItem)
 

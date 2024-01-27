@@ -18,6 +18,7 @@ import com.example.doctoronline.utils.Utils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.toObject
+import java.time.LocalTime
 
 class ViewAppointmentScreen : AppCompatActivity() {
     private val binding by lazy { ActivityViewAppointmentScreenBinding.inflate(layoutInflater) }
@@ -33,18 +34,13 @@ class ViewAppointmentScreen : AppCompatActivity() {
         } else {
             binding.imageEmail.setImageResource(R.drawable.placeholder)
         }
-        binding.tvLogin.text = "Hello " + Utils.getUserData(this)?.name
+        binding.tvLogin.text = "Hi, " + Utils.getUserData(this)?.name
 
         binding.backBtn.setOnClickListener {
             onBackPressed()
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val window: Window = window
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.statusBarColor = resources.getColor(R.color.green, theme)
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        }
+        wishUser()
 
         db = FirebaseFirestore.getInstance()
 
@@ -83,5 +79,21 @@ class ViewAppointmentScreen : AppCompatActivity() {
             }
     }
 
+    private fun wishUser() {
+        val currentTime = LocalTime.now()
+        val greeting = when {
+            currentTime.isAfter(LocalTime.parse("06:00:00")) && currentTime.isBefore(LocalTime.parse("12:00:00")) -> {
+                "Good Morning.."
+            }
+            currentTime.isAfter(LocalTime.parse("12:00:00")) && currentTime.isBefore(LocalTime.parse("18:00:00")) -> {
+                "Good Afternoon.."
+            }
+            else -> {
+                "Good Evening.."
+            }
+        }
+
+        binding.tvWish.text = greeting
+    }
 
 }

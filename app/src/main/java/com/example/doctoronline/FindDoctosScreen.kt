@@ -17,6 +17,7 @@ import android.widget.Button
 import android.widget.DatePicker
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.example.doctoronline.databinding.ActivityFindDoctosScreenBinding
 import com.example.doctoronline.databinding.DialogProgressBinding
 import com.example.doctoronline.databinding.PaymentBottomsheetBinding
@@ -45,12 +46,7 @@ class FindDoctosScreen : AppCompatActivity() {
             onBackPressed()
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val window: Window = window
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.statusBarColor = resources.getColor(R.color.white, theme)
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        }
+
 
         fireStore = FirebaseFirestore.getInstance()
 
@@ -58,10 +54,10 @@ class FindDoctosScreen : AppCompatActivity() {
         val progressDialogLay = DialogProgressBinding.inflate(LayoutInflater.from(this))
         progressDialog.setView(progressDialogLay.root)
         progressDialog.setCanceledOnTouchOutside(false)
-        progressDialog.show()
+        //progressDialog.show()
 
-        getDoctors()
-        getTimeSlot()
+        doctorList = ArrayList()
+        timeSlot = ArrayList()
 
         binding.spinnerSelectDoctor.setOnClickListener {
             showSpinnerList(doctorList, binding.spinnerSelectDoctor)
@@ -78,6 +74,37 @@ class FindDoctosScreen : AppCompatActivity() {
         }
 
 
+        val time = listOf(
+            "1:00 PM to 1:30 PM",
+            "1:30 PM to 2:00 PM",
+            "2:00 PM to 2:30 PM",
+            "2:30 PM to 3:00 PM",
+            "3:00 PM to 3:30 PM",
+            "3:30 PM to 4:00 PM",
+            "4:00 PM to 4:30 PM",
+            "4:30 PM to 5:00 PM",
+            "5:00 PM to 5:30 PM",
+            "5:30 PM to 6:00 PM",
+            "6:00 PM to 6:30 PM",
+            "6:30 PM to 7:00 PM",
+            "7:00 PM to 7:30 PM",
+            "7:30 PM to 8:00 PM",
+            "8:00 PM to 8:30 PM"
+        )
+
+        val doctorList = listOf(
+            "General Doctor",
+            "ENT",
+            "Nephrologist",
+            "Dermatologist",
+            "Neurologist",
+        )
+
+        val arrayAdopter = ArrayAdapter(this, R.layout.dropdown_item, time)
+        binding.spinnerTimeSlot.setAdapter(arrayAdopter)
+
+        val doctorAdopter = ArrayAdapter(this, R.layout.dropdown_item, doctorList)
+        binding.spinnerSelectDoctor.setAdapter(doctorAdopter)
 
         binding.btn010.setOnClickListener {
             onAgeButtonClicked(it as Button)
@@ -176,6 +203,7 @@ class FindDoctosScreen : AppCompatActivity() {
     private fun showDatePicker(callback: (Calendar) -> Unit) {
         val datePickerDialog = DatePickerDialog(
             this,
+            R.style.CustomDatePickerDialogTheme,
             { _, year, month, dayOfMonth ->
                 val selectedCalendar = Calendar.getInstance()
                 selectedCalendar.set(Calendar.YEAR, year)
@@ -195,6 +223,16 @@ class FindDoctosScreen : AppCompatActivity() {
         )
 
         datePickerDialog.datePicker.minDate = System.currentTimeMillis()
+
+        datePickerDialog.setOnShowListener { dialogInterface ->
+            // Find the positive (OK) button and set its text color
+            val positiveButton = datePickerDialog.getButton(DatePickerDialog.BUTTON_POSITIVE)
+            positiveButton.setTextColor(ContextCompat.getColor(this, android.R.color.black))
+
+            // Find the negative (Cancel) button and set its text color
+            val negativeButton = datePickerDialog.getButton(DatePickerDialog.BUTTON_NEGATIVE)
+            negativeButton.setTextColor(ContextCompat.getColor(this, android.R.color.black))
+        }
 
         datePickerDialog.show()
     }
@@ -240,8 +278,7 @@ class FindDoctosScreen : AppCompatActivity() {
                 val time = doc.getString("time")
                 timeSlot.add(time!!)
             }
-            val arrayAdopter = ArrayAdapter(this, R.layout.dropdown_item, timeSlot)
-            binding.spinnerTimeSlot.setAdapter(arrayAdopter)
+
             progressDialog.dismiss()
         }.addOnFailureListener {
             progressDialog.dismiss()

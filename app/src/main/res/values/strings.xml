@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Doctor Online</string>
+    <string name="app_name">Doctor Chat</string>
     <string name="add_payment_method">Add payment method</string>
     <string name="welcomeback">Welcome back</string>
     <string name="login">Login</string>
@@ -20,7 +20,7 @@
     <string name="pick_time_slot">Pick Time Slot</string>
     <string name="continue_paymeny">Continue to Payment</string>
     <string name="hintemail">Email</string>
-    <string name="email">useruseruser@gmail.com</string>
+    <string name="email">useremailid@gmail.com</string>
     <string name="select_age">Select  Age Group</string>
     <string name="buy_medicine2">Buy Medicine</string>
     <string name="amount_payable">Amount Payable</string>
@@ -33,29 +33,18 @@
     <string name="user">User Name</string>
     <string name="know_your_dis2">Know Your Disease</string>
     <string name="find_doc">Find Your Doctor</string>
-    <string name="doctor_online">Doctor Online</string>
-    <string name="buy_medicine">Buy Medicine Online\n
-Here</string>
-    <string name="view_appointments">View Your Appointment\n
-Here </string>
-    <string name="know_disease">Know Your Diseases\n
-Here</string>
-
-
-    <string name="doc_appointment">Appointment With\n
-Doctor</string>
-
-
+    <string name="doctor_online">Doctor Chat</string>
+    <string name="buy_medicine">Buy Medicine Online\nHere</string>
+    <string name="view_appointments">View Your Appointment\nHere </string>
+    <string name="know_disease">Know Your Diseases\nHere</string>
+    <string name="doc_appointment">Appointment With\nDoctor</string>
     <string name="privacypolicy">I agree with the Terms of Service and Privacy Policy</string>
     <string name="dont_have_acc">Don’t have an account?  Register</string>
-
-
     <string name="small_slogan">Instant Health, Anytime, Anywhere </string>
-    <string name="large_slogan">Your Health, Your Way: Seamless Care at Your\n
- Fingertips with Our Online Doctor App! </string>
-    <string name="fixed_payable_amount">₹500</string>
+    <string name="large_slogan">Your Health, Your Way: Seamless Care at Your\nFingertips with Our Online Doctor App! </string>
+    <string name="fixed_payable_amount">$ 500</string>
     <string name="web_client_id">354355069672-17ijfhqf3m9tqmmh6nisqi2b24bi4867.apps.googleusercontent.com</string>
-    <string name="open">Open\n</string>
+    <string name="open">Open</string>
     <string name="close">Close</string>
 
 </resources>

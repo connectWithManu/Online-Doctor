@@ -1,11 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.DoctorOnline" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.DoctorOnline" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/toolbar_green</item>
     </style>
 
     <style name="Theme.DoctorOnline" parent="Base.Theme.DoctorOnline" />
+
+    <style name="CustomDatePickerDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/toolbar_green</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
 
     <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowBackground">@drawable/dialog_bg</item>

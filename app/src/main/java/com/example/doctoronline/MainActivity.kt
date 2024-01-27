@@ -19,12 +19,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
+import java.time.LocalTime
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private lateinit var drawerToggle: ActionBarDrawerToggle
     private lateinit var database: FirebaseDatabase
-
     private lateinit var auth: FirebaseAuth
 
     @SuppressLint("SetTextI18n")
@@ -33,7 +33,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val user = Utils.getUserData(this)
 
-        binding.tvLogin.text = "Hello " + user?.name
+        wishUser()
+
+        binding.tvLogin.text = "Hi, " + user?.name
 
         if (user?.userImage != "") {
             binding.imageEmail.load(user?.userImage)
@@ -48,12 +50,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val window: Window = window
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.statusBarColor = resources.getColor(R.color.green, theme)
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        }
+
 
         drawerToggle =
             ActionBarDrawerToggle(this, binding.drawerLayout, R.string.open, R.string.close)
@@ -120,6 +117,23 @@ class MainActivity : AppCompatActivity() {
         binding.btKnowYourDiseases.setOnClickListener {
             startActivity(Intent(this@MainActivity, DiseaseScreen::class.java))
         }
+    }
+
+    private fun wishUser() {
+        val currentTime = LocalTime.now()
+        val greeting = when {
+            currentTime.isAfter(LocalTime.parse("06:00:00")) && currentTime.isBefore(LocalTime.parse("12:00:00")) -> {
+                "Good Morning.."
+            }
+            currentTime.isAfter(LocalTime.parse("12:00:00")) && currentTime.isBefore(LocalTime.parse("18:00:00")) -> {
+                "Good Afternoon.."
+            }
+            else -> {
+                "Good Evening.."
+            }
+        }
+
+        binding.tvWish.text = greeting
     }
 
 

@@ -11,19 +11,20 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/_56sdp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/toolbar_green"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/backBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_14sdp"
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:padding="@dimen/_8sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/simple_back"
-            app:tint="@color/black" />
+            app:tint="@color/white" />
 
         <TextView
             android:id="@+id/textView16"
@@ -31,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/medium"
+            android:textColor="@color/white"
             android:text="Payment"
             android:textSize="@dimen/_16sdp"
             app:layout_constraintBottom_toBottomOf="@+id/backBtn"
@@ -54,7 +56,6 @@
             android:id="@+id/paymentQrCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,19 +64,19 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/dr_online_image_" />
+            app:srcCompat="@drawable/square_icon" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/medium"
-            android:text="00000000@oksbi"
+            android:text="00000000@upi"
             android:textColor="@color/appointmet_clr_dark"
             android:textSize="@dimen/_16ssp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -103,7 +104,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/medium"
             android:text="Payable:"
-            android:textColor="@color/green"
+            android:textColor="@color/toolbar_green"
             android:textSize="@dimen/_16ssp"
             app:layout_constraintEnd_toEndOf="@+id/textView4"
             app:layout_constraintStart_toStartOf="@+id/textView4"

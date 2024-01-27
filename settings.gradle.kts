@@ -14,6 +14,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Doctor Online"
+rootProject.name = "Doctor Chat"
 include(":app")
  

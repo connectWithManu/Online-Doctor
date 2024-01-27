@@ -17,6 +17,7 @@ import com.example.doctoronline.model.DiseaseModel
 import com.example.doctoronline.utils.Utils
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.toObject
+import java.time.LocalTime
 
 class DiseaseScreen : AppCompatActivity() {
     private val binding by lazy { ActivityDiseaseScreenBinding.inflate(layoutInflater) }
@@ -38,14 +39,10 @@ class DiseaseScreen : AppCompatActivity() {
             binding.imageEmail.setImageResource(R.drawable.placeholder)
         }
 
-        binding.tvLogin.text = "Hello " + Utils.getUserData(this)?.name
+        binding.tvLogin.text = "Hi, " + Utils.getUserData(this)?.name
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val window: Window = window
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.statusBarColor = resources.getColor(R.color.green, theme)
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        }
+        wishUser()
+
 
         db = FirebaseFirestore.getInstance()
 
@@ -58,6 +55,23 @@ class DiseaseScreen : AppCompatActivity() {
 
         getDisease()
 
+    }
+
+    private fun wishUser() {
+        val currentTime = LocalTime.now()
+        val greeting = when {
+            currentTime.isAfter(LocalTime.parse("06:00:00")) && currentTime.isBefore(LocalTime.parse("12:00:00")) -> {
+                "Good Morning.."
+            }
+            currentTime.isAfter(LocalTime.parse("12:00:00")) && currentTime.isBefore(LocalTime.parse("18:00:00")) -> {
+                "Good Afternoon.."
+            }
+            else -> {
+                "Good Evening.."
+            }
+        }
+
+        binding.tvWish.text = greeting
     }
 
     private fun getDisease() {

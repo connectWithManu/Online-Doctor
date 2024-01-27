@@ -16,6 +16,7 @@
         android:layout_marginTop="@dimen/_16sdp"
         android:fontFamily="@font/medium"
         android:text="TextView"
+        android:textColor="@color/toolbar_green"
         android:textSize="@dimen/_16ssp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +30,7 @@
         android:fontFamily="@font/regular"
         android:text="TextView"
         android:textColor="@color/appointmet_clr_dark"
-        android:textSize="@dimen/_16ssp"
+        android:textSize="@dimen/_14ssp"
         app:layout_constraintBottom_toTopOf="@+id/qtySpinner"
         app:layout_constraintEnd_toStartOf="@+id/priceTxt"
         app:layout_constraintStart_toStartOf="@+id/nameTxt"
@@ -50,17 +51,16 @@
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/dropdowntextview"
             style="@style/Widget.Material3.AutoCompleteTextView.OutlinedBox"
-            android:background="@drawable/edit_bg_small"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:inputType="none"
-            android:enabled="true"
+            android:background="@drawable/edit_bg_small"
             android:dropDownSelector="@color/green"
+            android:enabled="true"
+            android:inputType="none"
             android:padding="4dp"
-            tools:text="Qty:1"
             android:textSize="14sp"
-            />
+            tools:text="Qty:1" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

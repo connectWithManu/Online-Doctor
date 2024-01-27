@@ -51,12 +51,7 @@ class CartScreen : AppCompatActivity() {
         firebaseCommon = FireBaseCommon(firestore,auth)
 
         binding.backBtn.setOnClickListener { onBackPressed() }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val window: Window = window
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.statusBarColor = resources.getColor(R.color.white, theme)
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        }
+
         progressDialog = AlertDialog.Builder(this, R.style.CustomAlertDialog).create()
         val progressDialogLay = DialogProgressBinding.inflate(LayoutInflater.from(this))
         progressDialog.setView(progressDialogLay.root)
