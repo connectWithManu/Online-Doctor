@@ -60,10 +60,10 @@
                 android:id="@+id/spinner"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_48sdp"
+                android:layout_height="@dimen/_42sdp"
                 android:layout_margin="@dimen/_12sdp"
-                android:enabled="true"
 
+                android:focusable="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -74,8 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Select Doctor"
-                    android:inputType="none"
-                    />
+                    android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,11 +82,11 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/spinner2"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_48sdp"
+                android:layout_height="@dimen/_42sdp"
                 android:layout_margin="@dimen/_12sdp"
                 android:enabled="true"
+                android:focusable="false"
                 app:layout_constraintEnd_toEndOf="parent"
-
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spinner">
 
@@ -105,9 +104,9 @@
                 android:id="@+id/spinner3"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_48sdp"
+                android:layout_height="@dimen/_42sdp"
                 android:layout_margin="@dimen/_12sdp"
-                android:enabled="true"
+                android:focusable="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spinner2">
@@ -117,8 +116,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Select Time"
-                    android:inputType="none"
-                    />
+                    android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

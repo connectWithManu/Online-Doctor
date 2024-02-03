@@ -6,7 +6,8 @@
     <color name="text_main">#000000</color>
     <color name="green">#0081A5</color>
     <color name="toolbar_green_lite">#FF9800</color>
-    <color name="toolbar_green">#0b155a</color>
+    <color name="toolbar_green">#0D28EE</color>
+    <color name="toolbar_green_lt">#4A60FB</color>
     <color name="appointmet_clr_light">#B3B7D3</color>
     <color name="appointmet_clr_dark">#797972</color>
     <color name="cart_txt_clr">#333333</color>

@@ -46,8 +46,6 @@ class FindDoctosScreen : AppCompatActivity() {
             onBackPressed()
         }
 
-
-
         fireStore = FirebaseFirestore.getInstance()
 
         progressDialog = AlertDialog.Builder(this, R.style.CustomAlertDialog).create()
@@ -58,21 +56,6 @@ class FindDoctosScreen : AppCompatActivity() {
 
         doctorList = ArrayList()
         timeSlot = ArrayList()
-
-        binding.spinnerSelectDoctor.setOnClickListener {
-            showSpinnerList(doctorList, binding.spinnerSelectDoctor)
-        }
-
-        binding.spinnerTimeSlot.setOnClickListener {
-            showSpinnerList(timeSlot, binding.spinnerTimeSlot)
-        }
-
-        binding.spinnerDatePicker.setOnClickListener {
-            showDatePicker { selectedCalendar ->
-                updateSelectedDate(selectedCalendar)
-            }
-        }
-
 
         val time = listOf(
             "1:00 PM to 1:30 PM",
@@ -100,11 +83,21 @@ class FindDoctosScreen : AppCompatActivity() {
             "Neurologist",
         )
 
-        val arrayAdopter = ArrayAdapter(this, R.layout.dropdown_item, time)
-        binding.spinnerTimeSlot.setAdapter(arrayAdopter)
+        binding.spinnerSelectDoctor.setOnClickListener {
+            showSpinnerList(doctorList, binding.spinnerSelectDoctor)
+        }
 
-        val doctorAdopter = ArrayAdapter(this, R.layout.dropdown_item, doctorList)
-        binding.spinnerSelectDoctor.setAdapter(doctorAdopter)
+        binding.spinnerTimeSlot.setOnClickListener {
+            showSpinnerList(time, binding.spinnerTimeSlot)
+        }
+
+        binding.spinnerDatePicker.setOnClickListener {
+            showDatePicker { selectedCalendar ->
+                updateSelectedDate(selectedCalendar)
+            }
+        }
+
+
 
         binding.btn010.setOnClickListener {
             onAgeButtonClicked(it as Button)

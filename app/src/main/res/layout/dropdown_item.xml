@@ -7,6 +7,6 @@
     android:padding="@dimen/_10sdp"
     android:text="Item"
     android:textColor="@color/toolbar_green"
-    android:textSize="@dimen/_16ssp">
+    android:textSize="@dimen/_14ssp">
 
 </TextView>

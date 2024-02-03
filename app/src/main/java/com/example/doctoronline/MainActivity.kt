@@ -35,13 +35,12 @@ class MainActivity : AppCompatActivity() {
 
         wishUser()
 
-        binding.tvLogin.text = "Hi, " + user?.name
-
-        if (user?.userImage != "") {
-            binding.imageEmail.load(user?.userImage)
+        if (Utils.getUserData(this)?.userImage != "") {
+            binding.imageEmail.load(Utils.getUserData(this)?.userImage)
         } else {
             binding.imageEmail.setImageResource(R.drawable.placeholder)
         }
+        binding.tvLogin.text = "Hi, " + Utils.getUserData(this)?.name
         
         auth = FirebaseAuth.getInstance()
 
